@@ -25,7 +25,7 @@ char CLIENT_ID[] = "d:" ORG ":" DEVICE_TYPE ":" DEVICE_ID; //Define Bluemix clie
 char AUTHMETHOD[] = "use-token-auth"; //Define Bluemix authentication method
 char AUTHTOKEN[] = "hxTTSTurXR?hVk@c)a"; //Define Bluemix authentication token
 char PUBLISH_TOPIC[] = "iot-2/evt/status/fmt/json"; //Define Watson IoT Platform publish topic
-char SUBSCRIBE_TOPIC[] = "iot-2/cmd/alert/fmt/json";//"iot-2/type/arduino/id/arduinouno/evt/alert/fmt/json"; //Define Watson IoT Platform subscribe topic
+char SUBSCRIBE_TOPIC[] = "iot-2/cmd/alert/fmt/json";//Define Watson IoT Platform subscribe topic
 
 void messageArrived(char* topic, byte* payload, unsigned int length)
 {
@@ -63,7 +63,7 @@ void loop(void)
 {
   if (!client.connected()) reconnect();
   readSensors();
-  client.publish(PUBLISH_TOPIC, (char*) buildJson().c_str()); // Send a message to IoT Foundation
+  client.publish(PUBLISH_TOPIC, (char*) buildJson().c_str()); // Send a message to IoT Platform
   delay(delaytime);
   client.loop();
 }
